@@ -38,7 +38,22 @@ body{
 }
 
 .input-box {
-  color: rgb(71, 2, 2);
+  color: #191919;
+}
+
+.passId{
+    color: red;
+}
+
+.ageId{
+    color:red;
+}
+.alert{
+    color:green;
+}
+
+.input-box{
+    color: rgb(0, 0, 0);
 }
 .content form .user-details{
   display: flex;
@@ -85,6 +100,7 @@ form .input-box span.details{
    align-items: center;
    cursor: pointer;
  }
+
  form .category label .dot{
   height: 18px;
   width: 18px;
@@ -97,7 +113,7 @@ form .input-box span.details{
  #dot-1:checked ~ .category label .one,
  #dot-2:checked ~ .category label .two,
  #dot-3:checked ~ .category label .three{
-   background: #9b59b6;
+   background: #4D4DFF;
    border-color: #d9d9d9;
  }
  form input[type="radio"]{
@@ -112,17 +128,19 @@ form .input-box span.details{
    width: 100%;
    border-radius: 5px;
    border: none;
-   color: #fff;
+   color: #black;
    font-size: 18px;
    font-weight: 500;
    letter-spacing: 1px;
    cursor: pointer;
-   transition: all 0.3s ease;
-   background: linear-gradient(135deg, #686d75, #9b59b6);
+   transition: all 0.1s ease;
+   background-color: #4d4dff;
  }
+
  form .button input:hover{
-  /* transform: scale(0.99); */
-  background: linear-gradient(-135deg, #686d75, #9b59b6);
+    background-color: transparent;
+	border: 2px solid #4D4DFF;
+	cursor: pointer;
   }
  @media(max-width: 584px){
  .container{
