@@ -7,28 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
 </head>
-<script>  
-    function verifyPassword_And_Age() {  
-    var pass = document.getElementById("pass").value;  
-    var age = document.getElementById("age").value;
-    if(pass.length < 8) {  
-        document.getElementById("message_pass").innerHTML = "Password length must be atleast 8 characters";  
-        return false;  
-    } 
+<script language="javascript"  type="text/javascript">  
+function validForm(){
+            var pass = document.forms["myForm"]["password"].value;
+            var birthYear = Number(document.forms["myForm"]["bday"].value.substring(0,4));
+            var age = (new Date().getFullYear()) - birthYear;
+
+            let flagpass = true;
+            let flagage = true;
+            console.log(pass);
+            console.log(birthYear);
+            console.log(age);
+
+            if(pass.length < 8){
+                document.getElementById("passId").innerHTML="Password must be at least 8 characters.";
+                flagpass = false;
+            } else{
+                document.getElementById("passId").innerHTML = "";
+            }
+
+            if (age < 21){
+                document.getElementById("ageId").innerHTML="Minors are not allowed!";
+                flagage = false;
+            }else{
+                document.getElementById("ageId").innerHTML = "";
+            }
+
+            if(flagage && flagpass){
+                document.getElementById("alert").innerHTML = "Hooray! Your account has been successfully created.";
+            }
+            else{
+                document.getElementById("alert").innerHTML = "";
+            }
+        }
     
-    if(age < 21) {
-        document.getElementById("message_age").innerHTML  = "Minors are not allowed!";
-        return false;
-    }
-        else document.write("Hooray! Your account has been successfully created.");
-    
-}   
     </script>
 <body>
 <div class="container">
     <div class="title">Registration</div>
+    <p id="alert" style="color:green;"></p>
     <div class="content">
-    <form onsubmit="return verifyPassword_And_Age()">
+    <form id="myForm">
         <div class="user-details">
         <div class="input-box">
             <span class="details">Full Name</span>
@@ -36,7 +55,8 @@
         </div>
         <div class="input-box">
             <span id="message_age">Age</span>
-            <input type="date" id="age" placeholder="Enter your Age" required>
+            <input type="date" id="bday" placeholder="Enter your Age" required>
+            <p id="ageId" style="color:red;"></p>
         </div>
         <div class="input-box">
             <span class="details">Email</span>
@@ -48,7 +68,8 @@
         </div>
         <div class="input-box">
             <span id="message_pass">Password</span>
-            <input type="password"  id="pass" placeholder="Password" required>
+            <input type="password"  id="password" placeholder="Password" required>
+            <p id="passId" style="color:red;"></p>
         </div>
         <div class="input-box">
             <span id="message">Adress</span>
@@ -72,7 +93,7 @@
         </div>
         </div>
         <div class="button">
-        <input type="submit" value="submit">
+        <input type="button" name="submit" value="Submit" id="submit" id="submit" onclick="validForm()">
         </div>
     </form>
     </div>
