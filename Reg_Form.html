@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href ="Form_Design.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<script>  
+    function verifyPassword_And_Age() {  
+    var pass = document.getElementById("pass").value;  
+    var age = document.getElementById("age").value;
+    if(pass.length < 8) {  
+        document.getElementById("message_pass").innerHTML = "Password length must be atleast 8 characters";  
+        return false;  
+    } 
+    
+    if(age < 21) {
+        document.getElementById("message_age").innerHTML  = "Minors are not allowed!";
+        return false;
+    }
+        else document.write("Hooray! Your account has been successfully created.");
+    
+}   
+    </script>
+<body>
+<div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+    <form onsubmit="return verifyPassword_And_Age()">
+        <div class="user-details">
+        <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name">
+        </div>
+        <div class="input-box">
+            <span id="message_age">Age</span>
+            <input type="number" id="age" placeholder="Enter your Age" required>
+        </div>
+        <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required>
+        </div>
+        <div class="input-box">
+            <span id="message_pass">Password</span>
+            <input type="password"  id="pass" placeholder="Password" required>
+        </div>
+        <div class="input-box">
+            <span id="message">Adress</span>
+            <input type="text"  id="adress" placeholder="Adress" required>
+        </div>
+        </div>
+        <div class="gender-details">
+        <input type="radio" name="gender" id="dot-1">
+        <input type="radio" name="gender" id="dot-2">
+        <input type="radio" name="gender" id="dot-3">
+        <span class="gender-title">Gender</span>
+        <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+        </label>
+        <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+        </label>
+        </div>
+        </div>
+        <div class="button">
+        <input type="submit" value="submit">
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>
